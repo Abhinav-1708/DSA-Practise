@@ -1,0 +1,28 @@
+Graphs: Nodes/Vertex , Edge
+    Directed Graphs
+    Undirected Graphs
+    Cycles in a Graph (start from node, end at that node)
+    1. Acyclic graphs - No cycles
+    2. Cyclic graphs - Contains cycles
+    Path 
+    Degree of graph
+        indegree
+        outdegree
+    (Total degree = 2 times the number of edges)
+    Edge Weight
+
+
+Graph Representation
+    // in questions you will be given that the graph contains n nodes and m edges
+    // next m lines to give information of edges
+    1. Matrix Way
+        Space (NxN)
+        Adjacency Matrix
+            if nodes are marked from 1
+                adj[n+1][n+1]
+            else
+                adj[n][n]
+    2. List Way
+        Space O(2E)
+        List of size n+1 for 1 based indexing
+            vector<int> adj[n+1]
