@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 class TarjanSCC:
-    def init(self, graph):
+    def __init__(self, graph):
         self.graph = graph
         self.time = 0
         self.stack = []

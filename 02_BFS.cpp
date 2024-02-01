@@ -13,9 +13,7 @@ public:
         vis[0] = 1;
         queue<int> q;
         q.push(0);
-        vector<int> bfs;
-
-        // Take out elements until the queue is not empty
+        vector<int> bfs;         
         while (!q.empty())
         {
             int node = q.front();
