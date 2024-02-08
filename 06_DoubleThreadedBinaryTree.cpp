@@ -92,17 +92,20 @@ void printDetailedReports(Node *node)
     {
         return;
     }
-    vector<string> directReports = findDirectReports(node, node->name);
-    cout << node->name;
-    if (!directReports.empty())
+    // Directly use node's children without findDirectReports
+    if (node->left != nullptr || node->right != nullptr)
     {
-        cout << " leads ";
-        for (const string &report : directReports)
+        cout << node->name << " leads ";
+        if (node->left != nullptr)
         {
-            cout << report << " ";
+            cout << node->left->name << " ";
         }
+        if (node->right != nullptr)
+        {
+            cout << node->right->name << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
     if (node->left != nullptr)
     {
         printDetailedReports(node->left);
@@ -112,6 +115,7 @@ void printDetailedReports(Node *node)
         printDetailedReports(node->right);
     }
 }
+
 int main()
 {
     Node *projectManager = new Node("Project Manager");
@@ -165,7 +169,14 @@ int main()
         cout << inputB << " has no direct reports or not found(Check Spellings)." << endl;
     }
 
-    printDetailedReports(projectManager, inputC);
-
+    Node *nodeC = findNode(projectManager, inputC);
+    if (nodeC != nullptr)
+    {
+        printDetailedReports(nodeC);
+    }
+    else
+    {
+        cout << inputC << " has no personnel under it or not found (Check Spellings)." << endl;
+    }
     return 0;
 }
