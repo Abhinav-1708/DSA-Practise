@@ -92,7 +92,6 @@ void printDetailedReports(Node *node)
     {
         return;
     }
-    // Directly use node's children without findDirectReports
     if (node->left != nullptr || node->right != nullptr)
     {
         cout << node->name << " leads ";
