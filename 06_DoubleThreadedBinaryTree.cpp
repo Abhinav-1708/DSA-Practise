@@ -64,28 +64,6 @@ vector<string> findDirectReports(Node *root, const string &nodeName)
     return reports;
 }
 
-// To help with finding all reports
-void findAllReportsHelper(Node *node, vector<string> &reports)
-{
-    if (node == nullptr)
-        return;
-    reports.push_back(node->name);
-    findAllReportsHelper(node->left, reports);
-    findAllReportsHelper(node->right, reports);
-}
-
-// Function to find all reports under a node
-vector<string> findAllReports(Node *root, const string &nodeName)
-{
-    vector<string> reports;
-    Node *node = findNode(root, nodeName);
-    if (node != nullptr)
-    {
-        findAllReportsHelper(node->left, reports);
-        findAllReportsHelper(node->right, reports);
-    }
-    return reports;
-}
 void printDetailedReports(Node *node)
 {
     if (node == nullptr)
